@@ -253,134 +253,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>macOS 11.4</p>
-<h2 id="前置依赖"><a href="#前置依赖" class="headerlink" title="前置依赖"></a>前置依赖</h2><ul>
-<li>Node.js ( $\ge10.13$, $12.0$ suggested )</li>
-<li>Git</li>
-</ul>
-<p>本次使用的git版本为内置的<code>git version 2.30.1 (Apple Git-130)</code>，Nodejs采用<code>brew install node</code>进行安装。</p>
-<h2 id="安装-amp-部署"><a href="#安装-amp-部署" class="headerlink" title="安装 &amp; 部署"></a>安装 &amp; 部署</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装nodejs后直接<code>npm install -g hexo-cli</code>安装完整的Hexo。</p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>建站的过程不长，在terminal里面敲（<del>fuzhizhantie</del>）了几行命令就差不多了。命令如下：</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt; <span class="comment"># 其中&lt;folder&gt;为指定的hexo在本地存放的路径</span></span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<h3 id="部署到GitHub-Page"><a href="#部署到GitHub-Page" class="headerlink" title="部署到GitHub Page"></a>部署到GitHub Page</h3><p>首先需要新建一个repository，名字为{Username}.github.io。</p>
-<p>部署到GitHub Page则需要修改deploy部分：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:&#123;Username&#125;/&#123;Username&#125;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<p>在确认本地的Hexo安装了git-deployer（<code>npm install hexo-deployer-git --save</code>）后，执行<code>ssh-keygen -t rsa -b 4096 -C &quot;xxx@xxx.com&quot;</code>生成public key（过程中要求输入直接回车即可），并将<code>~/.ssh/id_rsa.pub</code>中的内容添加到<code>GitHub-Settings-SSH-SSH keys</code>中，然后执行<code>hexo d</code>将Hexo部署到GitHub。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>参考：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">Official</a></p>
-<p>在<code>_config.yml</code>中设置Site和URL部分的参数，如title、author、url等。</p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>本次采用了NexT.Muse，参考<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">Getting Started</a>。</p>
-<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><p>参考：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">Official</a></p>
-<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p><code>hexo new [layout] &lt;title&gt;</code>: 新建一篇文章。<code>layout</code>参数可以省略，默认值为<code>_config.yml</code>中的<code>default_layout</code>。标题中若有空格则需要用引号包围整个标题。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-p</code>,<code>--path</code></td>
-<td>自定义新文章路径</td>
-</tr>
-<tr>
-<td><code>-r</code>,<code>--replace</code></td>
-<td>如果存在同名文章，将其替换</td>
-</tr>
-<tr>
-<td><code>-s</code>,<code>--slug</code></td>
-<td>文章的Slug，作为新文章的文件名和发布后的URL</td>
-</tr>
-</tbody></table>
-<h3 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h3><p><code>hexo generate</code>, <code>hexo g</code>: 生成静态文件。</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-d</code>,<code>--deploy</code></td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td><code>-w</code>,<code>--watch</code></td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td><code>-b</code>,<code>--bail</code></td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td><code>-f</code>,<code>--force</code></td>
-<td>强制重新生成文件</br>使用该参数的效果接近<code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td><code>-c</code>,<code>--concurrency</code></td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody></table>
-<h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><p><code>hexo publish [layout] &lt;filename&gt;</code>: 发表草稿</p>
-<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><p><code>hexo server</code>: 启动服务器。默认情况下，访问网址为: <code>http://localhost:4000/</code></p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-p</code>,<code>--port</code></td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td><code>-s</code>,<code>--static</code></td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td><code>-l</code>,<code>--log</code></td>
-<td>启动日志记录，使用覆盖记录格式</td>
-</tr>
-</tbody></table>
-<h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><p><code>hexo deploy</code>, <code>hexo d</code>: 部署网站。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-g</code>,<code>--generate</code></td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody></table>
-<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><p><code>hexo render &lt;file1&gt; [file2] ...</code>: 渲染文件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-o</code>,<code>--output</code></td>
-<td>设置输出路径</td>
-</tr>
-</tbody></table>
-<h3 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h3><p><code>hexo migrate &lt;type&gt;</code>: 从其他博客系统<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/migration">迁移内容</a></p>
-<h3 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h3><p><code>hexo clean</code>: 清除缓存文件（<code>db.json</code>）和已生成的静态文件（<code>public</code>）。</p>
-<p>在某些情况（尤其是更换主题后），如果发现更改无论如何也不生效，可能需要运行该命令。</p>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p><code>hexo list &lt;type&gt;</code>: 列出网站资料。</p>
-<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><p><code>hexo version</code>: 显示Hexo版本。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="主题部署"><a href="#主题部署" class="headerlink" title="主题部署"></a>主题部署</h3><p>Q：主题加载失败，界面一片混乱。<br>A：将<code>_config.yml</code>中的<code>url</code>设置为GitHub Page主页的地址。</p>
-<h2 id="主题内修改"><a href="#主题内修改" class="headerlink" title="主题内修改"></a>主题内修改</h2><p><code>back2top.scrollpercent</code>: <code>true</code><br><code>reading_progress.enable</code>: <code>true</code><br><code>reading_progress.color</code>: <code>#0077ff</code><br><code>math.mathjax.enable</code>: <code>true</code><br><code>math.katex.enable</code>: <code>true</code><br><code>footer.since</code>: $2021$<br><code>footer.icon.animated</code>: <code>true</code>  </p>
-<p>主题内<code>math.mathjax.enable</code>的修改目的是为了开启mathjax渲染支持。在不调整<code>math.every_page</code>的情况下，若要获得mathjax渲染支持则需要在post的front-matter中声明<code>mathjax: true</code>。</p>
-<p>主题设置参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/129644138">Zhihu-hexo+next个性化配置</a>, <a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/100138838">CSDN-Hexo-Next 主题博客个性化配置超详细，超全面(两万字)</a>, <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3a05351a37dc">简书-Hexo的Next主题详细配置</a>, <a target="_blank" rel="noopener" href="https://hexo.zxiaosi.cn/archives/5ef212b6.html">Hexo 安装及配置</a>, <a target="_blank" rel="noopener" href="https://hexo.zxiaosi.cn/archives/65f611a4.html">Hexo-Next 安装及使用</a>, <a target="_blank" rel="noopener" href="https://hexo.zxiaosi.cn/archives/2d288079.html">Hexo-Next 配置（基础篇）</a>, <a target="_blank" rel="noopener" href="https://hexo.zxiaosi.cn/archives/b78f5428.html">Hexo-Next 配置（插件篇）</a>, <a target="_blank" rel="noopener" href="https://hexo.zxiaosi.cn/archives/c776502.html">Hexo-Next 配置（进阶篇）</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo.io</a></p>
-
+          弃旧坑挖新坑.jpg
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BAGitHub-Page-Hexo-NexT%E5%8D%9A%E5%AE%A2%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
