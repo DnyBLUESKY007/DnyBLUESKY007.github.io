@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dnybluesky007.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="跨学科通识系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【跨学科通识系列03】工程学重要模型">
+<meta property="og:url" content="https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="DnyBLUESKY007&#39;s Blog">
+<meta property="og:description" content="跨学科通识系列">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/1.jpg">
+<meta property="og:image" content="https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/2.jpg">
+<meta property="article:published_time" content="2021-08-01T11:04:21.000Z">
+<meta property="article:modified_time" content="2021-08-01T11:04:21.000Z">
+<meta property="article:author" content="DnyBLUESKY007">
+<meta property="article:tag" content="跨学科通识">
+<meta property="article:tag" content="工程学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/1.jpg">
+
+
+<link rel="canonical" href="https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/","path":"2021/08/01/【跨学科通识系列03】工程学重要模型/","title":"【跨学科通识系列03】工程学重要模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【跨学科通识系列03】工程学重要模型 | DnyBLUESKY007's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DnyBLUESKY007's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">方法论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E5%88%86%E8%A7%A3%E7%BB%93%E6%9E%84-Work-Breakdown-Structure"><span class="nav-number">2.</span> <span class="nav-text">工程分解结构 Work Breakdown Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%8C%96-Quantification"><span class="nav-number">3.</span> <span class="nav-text">量化 Quantification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OKR-objective-and-key-results-%E7%9B%AE%E6%A0%87%E5%92%8C%E5%85%B3%E9%94%AE%E7%BB%93%E6%9E%9C%E7%AE%A1%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">OKR (objective and key results, 目标和关键结果管理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E6%B8%85%E5%8D%95-Check-list"><span class="nav-number">5.</span> <span class="nav-text">列清单 Check list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E8%88%8D-Trade-off"><span class="nav-number">6.</span> <span class="nav-text">取舍 Trade off</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E8%83%BD%E4%B8%89%E8%A7%92-Impossible-trinity"><span class="nav-number">6.1.</span> <span class="nav-text">不可能三角 Impossible trinity</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">DnyBLUESKY007</p>
+  <div class="site-description" itemprop="description">A brand new start.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dnybluesky007.github.io/2021/08/01/%E3%80%90%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86%E7%B3%BB%E5%88%9703%E3%80%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="DnyBLUESKY007">
+      <meta itemprop="description" content="A brand new start.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DnyBLUESKY007's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【跨学科通识系列03】工程学重要模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-01 19:04:21" itemprop="dateCreated datePublished" datetime="2021-08-01T19:04:21+08:00">2021-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><ul>
+<li>行胜于言</li>
+<li>分解结构</li>
+<li>量化</li>
+<li>列清单</li>
+<li>取舍</li>
+</ul>
+<h2 id="工程分解结构-Work-Breakdown-Structure"><a href="#工程分解结构-Work-Breakdown-Structure" class="headerlink" title="工程分解结构 Work Breakdown Structure"></a>工程分解结构 Work Breakdown Structure</h2><p>工程学的精髓所在</p>
+<p>把任何复杂的事情拆分成易于操作的简单模块，然后一个一个搞定。</p>
+<ul>
+<li>第一步：看全局。对全局整体地分析，并进行粗略划分。</li>
+<li>第二步：找聚焦（Focus）。先聚焦其中的一个部分，其他还没有完成的部分应当立即从大脑中消失。即专注聚焦（工程分解的孪生能力）。如果没有分解，就无从聚焦；如果没有聚焦，分解了也没有意义。Focus like a laser, not a flashlight.</li>
+</ul>
+<p>万事开头难$\rightarrow$天下难事必作于易</p>
+<p>工程分解结构的真正含义：既见树木，也见森林。</p>
+<p>从知到行：</p>
+<ul>
+<li>设定大目标，建立全局观</li>
+<li>分解—大概要分几步达到大目标</li>
+<li>再分解—1个月内要做什么</li>
+<li>todo list—1周内能做什么</li>
+<li>时间表—1天内能做什么</li>
+</ul>
+<p>学习新学科：建立整体框架$\rightarrow$学知识$\rightarrow$建联系</p>
+<p>知行合一：想和做两方面平衡</p>
+<h2 id="量化-Quantification"><a href="#量化-Quantification" class="headerlink" title="量化 Quantification"></a>量化 Quantification</h2><p>有条理的对现实生活进行量化模型思考</p>
+<ul>
+<li>首先：工程分解结构。从最简单的地方开始假设。</li>
+<li>然后：推演（Elaborate）剩下的变量。需要写下来、画出来、说出来。随着线索找到更多的变量。</li>
+<li>量化，构建数学模型。</li>
+</ul>
+<p>量化评估方法（估算模型，$\Rightarrow$商业思维）：</p>
+<ul>
+<li>成本收益二分法</li>
+<li>投入产出二分法（ROI，投入产出比）</li>
+</ul>
+<p>建立数学模型：</p>
+<ul>
+<li>找到最容易想到的变量</li>
+<li>通过叙事、画图找到更多的变量</li>
+<li>简单的四则运算</li>
+</ul>
+<h2 id="OKR-objective-and-key-results-目标和关键结果管理"><a href="#OKR-objective-and-key-results-目标和关键结果管理" class="headerlink" title="OKR (objective and key results, 目标和关键结果管理)"></a>OKR (objective and key results, 目标和关键结果管理)</h2><p>工程分解结构+量化</p>
+<p>分解$\downarrow$ 量化$\rightarrow$</p>
+<p>$\text{OKR}\begin{cases}\text{Objective} &amp; \text{大目标} \  \text{Key result} &amp; \text{关键结果} \ \text{Action} &amp; \text{具体行动} \ \end{cases}$</p>
+<p><img src="1.jpg" alt="OKR"></p>
+<p>$\Delta$: 合理运用进行目标规划</p>
+<h2 id="列清单-Check-list"><a href="#列清单-Check-list" class="headerlink" title="列清单 Check list"></a>列清单 Check list</h2><ul>
+<li>$\Rightarrow$更精确</li>
+<li>呈现优先级</li>
+<li>更加专注</li>
+<li>利于推敲，找到忽略的细节和逻辑不严谨的地方</li>
+<li>节省脑资源，记录在纸上或电子工具上外包负担</li>
+</ul>
+<p>飞书文档：todo待办看板文档模版（网页端）<br>sorted$^3$：iOS端GTD类应用</p>
+<p>任务列表+时间列表</p>
+<p>动态清单/静态清单</p>
+<h2 id="取舍-Trade-off"><a href="#取舍-Trade-off" class="headerlink" title="取舍 Trade off"></a>取舍 Trade off</h2><p>排序 优先级 分清主次</p>
+<p>难点：舍</p>
+<h3 id="不可能三角-Impossible-trinity"><a href="#不可能三角-Impossible-trinity" class="headerlink" title="不可能三角 Impossible trinity"></a>不可能三角 Impossible trinity</h3><p><img src="2.jpg" alt="Impossible trinity"></p>
+<p>三者不可兼得</p>
+<p>工程思维：便宜+快</p>
+<p>为什么工程思维反本能：$\Rightarrow$脑科学、人类学</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E9%80%9A%E8%AF%86/" rel="tag"># 跨学科通识</a>
+              <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%AD%A6/" rel="tag"># 工程学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/21/Hexo%E5%86%99%E4%BD%9C%E8%BF%87%E7%A8%8B%E7%9A%84%E6%9D%82%E8%AE%B0/" rel="prev" title="Hexo写作过程的杂记">
+                  <i class="fa fa-chevron-left"></i> Hexo写作过程的杂记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DnyBLUESKY007</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">12k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">11 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
