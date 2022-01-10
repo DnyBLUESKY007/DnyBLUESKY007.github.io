@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dnybluesky007.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="都是离散的作业罢了（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝叶斯垃圾邮件分类学习笔记">
+<meta property="og:url" content="https://dnybluesky007.github.io/2021/12/18/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="DnyBLUESKY007&#39;s Blog">
+<meta property="og:description" content="都是离散的作业罢了（">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-18T12:42:42.000Z">
+<meta property="article:modified_time" content="2021-12-18T13:06:18.727Z">
+<meta property="article:author" content="DnyBLUESKY007">
+<meta property="article:tag" content="Bayes&#39; rule">
+<meta property="article:tag" content="Bayes&#39; inference">
+<meta property="article:tag" content="概率">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dnybluesky007.github.io/2021/12/18/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnybluesky007.github.io/2021/12/18/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2021/12/18/贝叶斯垃圾邮件分类学习笔记/","title":"贝叶斯垃圾邮件分类学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>贝叶斯垃圾邮件分类学习笔记 | DnyBLUESKY007's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DnyBLUESKY007's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯垃圾邮件过滤器的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DnyBLUESKY007"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">DnyBLUESKY007</p>
+  <div class="site-description" itemprop="description">A brand new start.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DnyBLUESKY007" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DnyBLUESKY007" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/--BLUESKY007/" title="CnBlogs → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;--BLUESKY007&#x2F;" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>CnBlogs</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dnybluesky007.github.io/2021/12/18/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="DnyBLUESKY007">
+      <meta itemprop="description" content="A brand new start.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DnyBLUESKY007's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          贝叶斯垃圾邮件分类学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-18 20:42:42 / 修改时间：21:06:18" itemprop="dateCreated datePublished" datetime="2021-12-18T20:42:42+08:00">2021-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="贝叶斯垃圾邮件过滤器的工作原理"><a href="#贝叶斯垃圾邮件过滤器的工作原理" class="headerlink" title="贝叶斯垃圾邮件过滤器的工作原理"></a>贝叶斯垃圾邮件过滤器的工作原理</h2><p>贝叶斯垃圾邮件过滤器的基本依据是条件概率。</p>
+<p>贝叶斯定理（Bayes’ rule）：$P(A|B)=\frac{P(B|A) P(A)}{P(B)}$。</p>
+<p>证明：根据Venn图可得，在B发生的情况下A发生的概率$P(A|B)=\frac{P(A\cap B)}{P(B)}$。由此，$P(A\cap B)=P(A|B) P(B)$。同理，$P(A\cap B)=P(B|A) P(A)$。因此，$P(A|B) P(B)=P(B|A) P(A)$，即$P(A|B)=\frac{P(B|A) P(A)}{P(B)}$。</p>
+<p>贝叶斯推断（Bayes’ inference）：利用贝叶斯定理的公式变形得到$P(A|B)=P(A)\frac{P(B|A)}{P(B)}$，其中$P(A)$称为先验概率（Prior probability），$P(A|B)$称为后验概率（Posterior probability），$\frac{P(B|A)}{P(B)}$称为可能性函数（Likelihood）。其含义为在B事件发生后，通过可能性函数对A发生的概率进行重新评估，得到相较先验概率更接近真实概率的后验概率。</p>
+<p>贝叶斯垃圾邮件过滤器的工作原理：设A表示邮件是垃圾邮件，B表示出现特定单词W。根据贝叶斯推断，我们可以通过事件B推得事件A更准确的概率，此处可能性函数的值可以通过垃圾邮件中W出现的概率与W在所有邮件中出现的概率的比值得到。则在设定初始的先验概率后，通过特定单词在垃圾邮件中的出现情况，可以得到邮件中出现单词W且该邮件是垃圾邮件的概率。贝叶斯垃圾邮件过滤器即通过这样的原理，由邮件中单词的出现概率和在垃圾邮件中的出现概率，进一步对邮件是垃圾邮件的概率进行推算，若达到设定阈值则认定邮件是垃圾邮件，反之为正常邮件。</p>
+<p>通常初始先验概率为0.5，判定阈值为0.9。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_two.html">贝叶斯推断及其互联网应用（二）：过滤垃圾邮件</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/08/bayesian_inference_part_one.html">贝叶斯推断及其互联网应用（一）：定理简介</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bayes-rule/" rel="tag"># Bayes' rule</a>
+              <a href="/tags/Bayes-inference/" rel="tag"># Bayes' inference</a>
+              <a href="/tags/%E6%A6%82%E7%8E%87/" rel="tag"># 概率</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/29/%E8%AE%B0%E5%BD%95MindSpore%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/" rel="prev" title="记录MindSpore环境安装过程">
+                  <i class="fa fa-chevron-left"></i> 记录MindSpore环境安装过程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/30/LaTeX%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="LaTeX自定义命令学习笔记">
+                  LaTeX自定义命令学习笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DnyBLUESKY007</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

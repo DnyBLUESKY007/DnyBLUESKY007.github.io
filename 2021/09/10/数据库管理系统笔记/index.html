@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dnybluesky007.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="2021秋数据库课程-INFO210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库管理系统笔记">
+<meta property="og:url" content="https://dnybluesky007.github.io/2021/09/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="DnyBLUESKY007&#39;s Blog">
+<meta property="og:description" content="2021秋数据库课程-INFO210">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-10T05:11:41.000Z">
+<meta property="article:modified_time" content="2021-09-10T05:11:41.000Z">
+<meta property="article:author" content="DnyBLUESKY007">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="PostgreSQL">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dnybluesky007.github.io/2021/09/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnybluesky007.github.io/2021/09/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/","path":"2021/09/10/数据库管理系统笔记/","title":"数据库管理系统笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据库管理系统笔记 | DnyBLUESKY007's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DnyBLUESKY007's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PostgreSQL%EF%BC%88macOS%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">安装PostgreSQL（macOS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85pgAdmin-4"><span class="nav-number">2.</span> <span class="nav-text">安装pgAdmin 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C%E5%92%8C%E5%85%B3%E9%97%AD"><span class="nav-number">3.</span> <span class="nav-text">本地数据库服务器运行和关闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">课堂练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-2"><span class="nav-number">4.1.</span> <span class="nav-text">Week 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-3"><span class="nav-number">4.2.</span> <span class="nav-text">Week 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-4"><span class="nav-number">4.3.</span> <span class="nav-text">Week 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-5"><span class="nav-number">4.4.</span> <span class="nav-text">Week 5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assignment-4"><span class="nav-number">5.</span> <span class="nav-text">Assignment 4</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DnyBLUESKY007"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">DnyBLUESKY007</p>
+  <div class="site-description" itemprop="description">A brand new start.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DnyBLUESKY007" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DnyBLUESKY007" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/--BLUESKY007/" title="CnBlogs → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;--BLUESKY007&#x2F;" rel="noopener" target="_blank"><i class="fa fa-rss fa-fw"></i>CnBlogs</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dnybluesky007.github.io/2021/09/10/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="DnyBLUESKY007">
+      <meta itemprop="description" content="A brand new start.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DnyBLUESKY007's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据库管理系统笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-10 13:11:41" itemprop="dateCreated datePublished" datetime="2021-09-10T13:11:41+08:00">2021-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="安装PostgreSQL（macOS）"><a href="#安装PostgreSQL（macOS）" class="headerlink" title="安装PostgreSQL（macOS）"></a>安装PostgreSQL（macOS）</h2><p>直接<code>homebrew</code>安装即可（<code>brew install postgresql</code>）</p>
+<h2 id="安装pgAdmin-4"><a href="#安装pgAdmin-4" class="headerlink" title="安装pgAdmin 4"></a>安装pgAdmin 4</h2><p><a target="_blank" rel="noopener" href="https://www.pgadmin.org/download/pgadmin-4-macos/">Download</a></p>
+<p>版本V5.7</p>
+<p>(start后)打开pgAdmin 4后在servers中新建server(myServer, localhost, username), databases中新建用户名同名database。</p>
+<h2 id="本地数据库服务器运行和关闭"><a href="#本地数据库服务器运行和关闭" class="headerlink" title="本地数据库服务器运行和关闭"></a>本地数据库服务器运行和关闭</h2><p>MBA:</p>
+<p><code>pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start</code></p>
+<p><code>pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop</code></p>
+<p>MBP:</p>
+<p><code>pg_ctl -D /opt/homebrew/var/postgres -l /opt/homebrew/var/postgres/server.log start</code></p>
+<p><code>pg_ctl -D /opt/homebrew/var/postgres -l /opt/homebrew/var/postgres/server.log stop</code></p>
+<p><code>/opt/homebrew/var/postgres</code></p>
+<h2 id="课堂练习"><a href="#课堂练习" class="headerlink" title="课堂练习"></a>课堂练习</h2><h3 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h3><p>（在schemas）导入<code>sql</code>表（打开<code>query tool</code>，将四张表拖入运行即可）</p>
+<h3 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> model, speed, hd <span class="keyword">from</span> pc <span class="keyword">where</span> price <span class="operator">&lt;</span> <span class="number">1000</span>; <span class="comment">-- 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> model, speed <span class="keyword">as</span> gigahertz, hd <span class="keyword">as</span> gigabytes <span class="keyword">from</span> pc <span class="keyword">where</span> price <span class="operator">&lt;</span> <span class="number">1000</span>; <span class="comment">-- 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> maker <span class="keyword">from</span> product <span class="keyword">where</span> type <span class="operator">=</span> <span class="string">&#x27;printer&#x27;</span>; <span class="comment">-- 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> model, ram, screen <span class="keyword">from</span> laptop <span class="keyword">where</span> price <span class="operator">&gt;</span> <span class="number">1500</span>; <span class="comment">-- 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> printer <span class="keyword">where</span> color <span class="operator">=</span> <span class="literal">true</span>; <span class="comment">-- 6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> model, hd <span class="keyword">from</span> pc <span class="keyword">where</span> speed <span class="operator">=</span> <span class="number">3.2</span> <span class="keyword">and</span> price <span class="operator">&lt;</span> <span class="number">2000</span>; <span class="comment">-- 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ans.drinker <span class="keyword">from</span> likes ans, likes diff <span class="keyword">where</span> ans.drinker<span class="operator">=</span>diff.drinker <span class="keyword">and</span> ans.beer<span class="operator">&lt;</span>diff.beer; <span class="comment">-- L1-P30</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> ans.drinker <span class="keyword">from</span> likes ans, likes diff <span class="keyword">where</span> ans.drinker<span class="operator">=</span>diff.drinker <span class="keyword">and</span> ans.beer<span class="operator">&lt;</span>diff.beer; <span class="comment">-- L1-P30-只出现一次</span></span><br></pre></td></tr></table></figure>
+
+<p>集合操作：并<code>UNION</code>、交<code>INTERSECT</code>、差<code>EXCEPT/MINUS</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> speed, maker <span class="keyword">from</span> laptop, product <span class="keyword">where</span> laptop.hd<span class="operator">&gt;=</span><span class="number">30</span> <span class="keyword">and</span> product.model<span class="operator">=</span>laptop.model; <span class="comment">-- 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> pc.model, price <span class="keyword">from</span> pc, product <span class="keyword">where</span> pc.model<span class="operator">=</span>product.model <span class="keyword">and</span> product.maker<span class="operator">=</span><span class="string">&#x27;B&#x27;</span>; <span class="comment">-- 2</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">DISTINCT</span> maker <span class="keyword">from</span> product <span class="keyword">where</span> type<span class="operator">=</span><span class="string">&#x27;laptop&#x27;</span>)</span><br><span class="line"><span class="keyword">EXCEPT</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">DISTINCT</span> maker <span class="keyword">from</span> product <span class="keyword">where</span> type<span class="operator">=</span><span class="string">&#x27;pc&#x27;</span>); <span class="comment">-- 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> ans.hd <span class="keyword">from</span> pc ans, pc diff <span class="keyword">where</span> ans.hd<span class="operator">=</span>diff.hd <span class="keyword">and</span> ans.model<span class="operator">&lt;</span>diff.model; <span class="comment">-- 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> ans.model, diff.model </span><br><span class="line"><span class="keyword">from</span> pc ans, pc diff </span><br><span class="line"><span class="keyword">where</span> ans.speed<span class="operator">=</span>diff.speed <span class="keyword">and</span> ans.ram<span class="operator">=</span>diff.ram <span class="keyword">and</span> ans.model<span class="operator">&lt;</span>diff.model; <span class="comment">-- 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> product.maker <span class="keyword">from</span> product, printer <span class="keyword">where</span> product.model<span class="operator">=</span>printer.model <span class="keyword">and</span> printer.color<span class="operator">=</span><span class="literal">true</span>; <span class="comment">-- 6</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h3><p><code>EXIST</code>: 存在，对询问使用，若询问结果不为空则为真，否则为假。</p>
+<p><code>IN</code>: 属于</p>
+<p><code>ANY</code>: 集合中任意一个</p>
+<p><code>ALL</code>: 集合中所有</p>
+<p>相关子查询：L1-P48</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- L1-P53</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> maker </span><br><span class="line"><span class="keyword">from</span> product piece </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> pc PC <span class="keyword">where</span> PC.speed <span class="operator">&gt;=</span> <span class="number">3.0</span> <span class="keyword">AND</span> PC.model <span class="operator">=</span> piece.model</span><br><span class="line">); <span class="comment">-- 1-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> maker </span><br><span class="line"><span class="keyword">from</span> product piece </span><br><span class="line"><span class="keyword">where</span> piece.model <span class="keyword">IN</span> (</span><br><span class="line">  <span class="keyword">select</span> model <span class="keyword">from</span> pc PC <span class="keyword">where</span> PC.speed <span class="operator">&gt;=</span> <span class="number">3.0</span></span><br><span class="line">); <span class="comment">-- 1-2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> printer PR </span><br><span class="line"><span class="keyword">where</span> PR.price <span class="operator">&gt;=</span> <span class="keyword">ALL</span>(</span><br><span class="line">  <span class="keyword">select</span> price <span class="keyword">from</span> printer</span><br><span class="line">); <span class="comment">-- 2-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> printer PR </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">select</span> price <span class="keyword">from</span> printer PR2 <span class="keyword">where</span> PR.price <span class="operator">&lt;</span> PR2.price</span><br><span class="line">); <span class="comment">-- 2-2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> laptop LT </span><br><span class="line"><span class="keyword">where</span> LT.speed <span class="operator">&lt;</span> <span class="keyword">ANY</span>(</span><br><span class="line">  <span class="keyword">select</span> speed <span class="keyword">from</span> pc</span><br><span class="line">); <span class="comment">-- 3-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">from</span> laptop LT </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">select</span> speed <span class="keyword">from</span> pc PC <span class="keyword">where</span> PC.speed <span class="operator">&gt;</span> LT.speed</span><br><span class="line">); <span class="comment">-- 3-2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> maker </span><br><span class="line"><span class="keyword">from</span> product prod, printer PR </span><br><span class="line"><span class="keyword">where</span> prod.model <span class="operator">=</span> PR.model <span class="keyword">and</span> (PR.price <span class="operator">&lt;=</span> <span class="keyword">ALL</span> (</span><br><span class="line">  <span class="keyword">select</span> price <span class="keyword">from</span> printer PR2 <span class="keyword">where</span> PR2.color <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line">)); <span class="comment">-- 4-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> maker </span><br><span class="line"><span class="keyword">from</span> product prod, printer PR </span><br><span class="line"><span class="keyword">where</span> prod.model <span class="operator">=</span> PR.model <span class="keyword">and</span> PR.color <span class="operator">=</span> <span class="literal">true</span> <span class="keyword">and</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">select</span> price <span class="keyword">from</span> printer PR2 <span class="keyword">where</span> PR.price <span class="operator">&gt;</span> PR2.price <span class="keyword">and</span> PR2.color <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line">); <span class="comment">-- 4-2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> maker </span><br><span class="line"><span class="keyword">from</span> product PR </span><br><span class="line"><span class="keyword">where</span> <span class="number">250</span> <span class="operator">&lt;=</span> <span class="keyword">ALL</span>(</span><br><span class="line">  <span class="keyword">select</span> hd <span class="keyword">from</span> pc PC <span class="keyword">where</span> PC.model <span class="operator">=</span> <span class="keyword">ANY</span>(</span><br><span class="line">    <span class="keyword">select</span> model <span class="keyword">from</span> product PR2 <span class="keyword">where</span> PR2.maker <span class="operator">=</span> PR.maker</span><br><span class="line">  )</span><br><span class="line">); <span class="comment">-- 5-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">DISTINCT</span> maker </span><br><span class="line"><span class="keyword">from</span> product PR </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">  <span class="keyword">select</span> hd <span class="keyword">from</span> pc PC <span class="keyword">where</span> PC.hd <span class="operator">&lt;</span> <span class="number">250</span> <span class="keyword">and</span> PC.model <span class="operator">=</span> <span class="keyword">ANY</span>(</span><br><span class="line">    <span class="keyword">select</span> model <span class="keyword">from</span> product PR2 <span class="keyword">where</span> PR2.maker <span class="operator">=</span> PR.maker</span><br><span class="line">  )</span><br><span class="line">); <span class="comment">-- 5-2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Assignment-4"><a href="#Assignment-4" class="headerlink" title="Assignment 4"></a>Assignment 4</h2><p>用python连接数据库：本地安装<code>psycopg2</code>（<code>pip3 install psycopg2-binary</code>）。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/smstong/article/details/17138355">psql命令</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/my-blogs-for-everone/p/10226473.html">psql命令</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/ZOJP18Ea5v/">psql</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SQL/" rel="tag"># SQL</a>
+              <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/19/CF1560F1-F2-Nearest-Beautiful-Number/" rel="prev" title="CF1560F1/F2 Nearest Beautiful Number">
+                  <i class="fa fa-chevron-left"></i> CF1560F1/F2 Nearest Beautiful Number
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/10/macOS%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8%E8%AE%B0%E5%BD%95/" rel="next" title="macOS安装应用记录">
+                  macOS安装应用记录 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DnyBLUESKY007</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
