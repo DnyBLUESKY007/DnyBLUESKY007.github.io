@@ -138,20 +138,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -273,7 +273,8 @@
 <p>[20220110重装]: <code>_config.yml</code></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:&#123;Username&#125;/&#123;Username&#125;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
-<p>在确认本地的Hexo安装了git-deployer（<code>npm install hexo-deployer-git --save</code>）后，执行<code>ssh-keygen -t rsa -b 4096 -C &quot;xxx@xxx.com&quot;</code>生成public key（过程中要求输入直接回车即可），并将<code>~/.ssh/id_rsa.pub</code>中的内容添加到<code>GitHub-Settings-SSH-SSH keys</code>中，然后执行<code>hexo d</code>将Hexo部署到GitHub。</p>
+<p>在确认本地的Hexo安装了git-deployer（<code>npm install hexo-deployer-git --save</code>）后，执行<code>ssh-keygen -t rsa -b 4096 -C &quot;email@git.com&quot;</code>生成public key（过程中要求输入直接回车即可），并将<code>~/.ssh/id_rsa.pub</code>中的内容添加到<code>GitHub-Settings-SSH-SSH keys</code>中，然后执行<code>hexo d</code>将Hexo部署到GitHub。</p>
+<p>[20220110重装]: 更换分支需要修改<code>.travis.yml</code>中的<code>branches</code>和<code>GitHub-Settings-Pages</code>中的<code>source-branch</code></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>参考：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">Official</a></p>
 <p>在<code>_config.yml</code>中设置Site和URL部分的参数，如title、author、url等。</p>
 <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>本次采用了NexT.Muse，参考<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">Getting Started</a>。</p>
