@@ -20,29 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dnybluesky007.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="关于花了无数天在openEuler虚拟机上套娃安装lfs系统并疯狂修锅这件事">
+<meta name="description" content="上课笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录openEuler实验过程">
-<meta property="og:url" content="https://dnybluesky007.github.io/2021/07/19/%E8%AE%B0%E5%BD%95openEuler%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:title" content="INFO 212 数据科学编程I笔记">
+<meta property="og:url" content="https://dnybluesky007.github.io/2022/02/25/INFO-212-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%BC%96%E7%A8%8BI%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="DnyBLUESKY007&#39;s Blog">
-<meta property="og:description" content="关于花了无数天在openEuler虚拟机上套娃安装lfs系统并疯狂修锅这件事">
+<meta property="og:description" content="上课笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-19T13:17:25.000Z">
-<meta property="article:modified_time" content="2021-07-15T09:07:25.000Z">
+<meta property="article:published_time" content="2022-02-25T08:34:58.000Z">
+<meta property="article:modified_time" content="2022-02-25T08:34:58.000Z">
 <meta property="article:author" content="DnyBLUESKY007">
-<meta property="article:tag" content="openEuler">
-<meta property="article:tag" content="暑期学校2021">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://dnybluesky007.github.io/2021/07/19/%E8%AE%B0%E5%BD%95openEuler%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/">
+<link rel="canonical" href="https://dnybluesky007.github.io/2022/02/25/INFO-212-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%BC%96%E7%A8%8BI%E7%AC%94%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnybluesky007.github.io/2021/07/19/%E8%AE%B0%E5%BD%95openEuler%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/","path":"2021/07/19/记录openEuler实验过程/","title":"记录openEuler实验过程"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dnybluesky007.github.io/2022/02/25/INFO-212-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%BC%96%E7%A8%8BI%E7%AC%94%E8%AE%B0/","path":"2022/02/25/INFO-212-数据科学编程I笔记/","title":"INFO 212 数据科学编程I笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>记录openEuler实验过程 | DnyBLUESKY007's Blog</title>
+<title>INFO 212 数据科学编程I笔记 | DnyBLUESKY007's Blog</title>
   
 
 
@@ -121,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitee%E5%9C%B0%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">gitee地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%89%A7%E8%A1%8C%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">实验执行设备配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">过程记录</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#220225"><span class="nav-number">1.</span> <span class="nav-text">220225</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6"><span class="nav-number">1.2.</span> <span class="nav-text">数据科学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%BC%96%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">数据科学编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E8%AF%AD%E8%A8%80"><span class="nav-number">1.4.</span> <span class="nav-text">可用语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%83%A8%E5%88%86"><span class="nav-number">1.5.</span> <span class="nav-text">实验部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE"><span class="nav-number">1.5.1.</span> <span class="nav-text">前置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C1"><span class="nav-number">1.5.2.</span> <span class="nav-text">实验1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C2"><span class="nav-number">1.5.3.</span> <span class="nav-text">实验2</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -200,7 +198,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dnybluesky007.github.io/2021/07/19/%E8%AE%B0%E5%BD%95openEuler%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://dnybluesky007.github.io/2022/02/25/INFO-212-%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%BC%96%E7%A8%8BI%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -213,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          记录openEuler实验过程
+          INFO 212 数据科学编程I笔记
         </h1>
 
         <div class="post-meta-container">
@@ -224,22 +222,15 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-07-19 21:17:25" itemprop="dateCreated datePublished" datetime="2021-07-19T21:17:25+08:00">2021-07-19</time>
+      <time title="创建时间：2022-02-25 16:34:58" itemprop="dateCreated datePublished" datetime="2022-02-25T16:34:58+08:00">2022-02-25</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-15 17:07:25" itemprop="dateModified" datetime="2021-07-15T17:07:25+08:00">2021-07-15</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/openEuler/" itemprop="url" rel="index"><span itemprop="name">openEuler</span></a>
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
         </span>
     </span>
 
@@ -253,16 +244,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="gitee地址"><a href="#gitee地址" class="headerlink" title="gitee地址"></a>gitee地址</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/organizations/openeuler-practice-courses/projects">openEuler</a><br><a target="_blank" rel="noopener" href="https://gitee.com/openeuler-practice-courses/lfs-course">lfs-course</a><br><a target="_blank" rel="noopener" href="https://gitee.com/openeuler-practice-courses/lanzhou_university_2021">LZU2021</a></p>
-<h2 id="实验执行设备配置"><a href="#实验执行设备配置" class="headerlink" title="实验执行设备配置"></a>实验执行设备配置</h2><p>CPU: Intel(R) i5-8500 @ 3.00GHz  3.00 GHz (x64 based)<br>RAM: 8.00 GB<br>OS: Windows 10 教育版 (x64)<br>VM: Virtual Box<br>VM OS: openEuler 20.09 with 5.00 GB RAM</p>
-<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/openeuler-practice-courses/lfs-course/blob/master/lfs-7.7-systemd/documents/04%20%E5%AE%9E%E9%AA%8C%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8Cv1.2.docx">实验手册（学生版） v1.2.docx</a><br><a target="_blank" rel="noopener" href="https://gitee.com/openeuler-practice-courses/lfs-course/blob/master/lfs-7.7-systemd/scripts/build-lfs7.7systemd.sh">build-lfs7.7systemd.sh</a></p>
-<h2 id="过程记录"><a href="#过程记录" class="headerlink" title="过程记录"></a>过程记录</h2><p>（无特殊说明即依照文档和shell进行操作）  </p>
-<p>（<del>前面一遍乱七八糟的东西都删了qwq</del>）</p>
-<p>（重做$\times 1$）</p>
-<p>注：\large{\text{<strong>建议过程连续</strong>}}</p>
-<p>本地构建后的IP：192.168.56.103<br>password of root: openEuler2009  </p>
-<p>password of lfs: lfs@123</p>
-<p>卡在shell的L530 -&gt; 回到L276并跳过L329-L332<br>L1472： <code>../glibc</code> -&gt; <code>/sources/glibc</code><br>L1300+后退出重进： L1315<code>chroot</code>重进<br>Updated shell: pulled request at <a target="_blank" rel="noopener" href="https://gitee.com/openeuler-practice-courses/lfs-course">lfs-course</a>  </p>
+        <h2 id="220225"><a href="#220225" class="headerlink" title="220225"></a>220225</h2><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>数据类型：结构化/非结构化、离散/连续、枚举/二元/有序/数值（绝对/相对/区间/比例）</p>
+<h3 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h3><p>数据科学生命周期</p>
+<h3 id="数据科学编程"><a href="#数据科学编程" class="headerlink" title="数据科学编程"></a>数据科学编程</h3><p>功能编程 Functional -&gt; 科学编程 Data Science</p>
+<p>不刻意注重实现细节 -&gt; 利用工具实现(I)/算法优化(II)</p>
+<h3 id="可用语言"><a href="#可用语言" class="headerlink" title="可用语言"></a>可用语言</h3><p>Python、R、SQL、Matlab、Scala</p>
+<p>R：统计、可视化</p>
+<p>Scala：实际应用，较新。</p>
+<h3 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h3><p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/clustering.html">scikit-learn</a></p>
+<p>目标：在电脑上运行</p>
+<h4 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h4><p>安装：</p>
+<p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/install.html">Ref.</a></p>
+<h4 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h4><p>Run k-means clustering on your machine</p>
+<p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_plusplus.html#sphx-glr-auto-examples-cluster-plot-kmeans-plusplus-py">k-means++</a></p>
+<h4 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h4><p>Run OPTICS clustering on your machine</p>
+<p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_optics.html#sphx-glr-auto-examples-cluster-plot-optics-py">OPTICS</a></p>
+<p>使用jupyter notebook可以运行</p>
+<p>补充：</p>
+<p>使用虚拟环境virtual env</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv <span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">virtualenv [venvDir] <span class="comment"># 创建</span></span><br><span class="line"></span><br><span class="line">virtualenv -p [dir of python2/3] [venv dir] <span class="comment"># 指定python版本</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> [venv dir]/bin/activate <span class="comment"># 运行虚拟环境</span></span><br><span class="line"></span><br><span class="line">deactivate <span class="comment"># 终止虚拟环境</span></span><br></pre></td></tr></table></figure>
+
+<p>M1使用虚拟环境可能存在问题，使用jupyter notebook即可。</p>
 
     </div>
 
@@ -271,23 +273,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/openEuler/" rel="tag"># openEuler</a>
-              <a href="/tags/%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A12021/" rel="tag"># 暑期学校2021</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/19/%E8%AE%B0%E5%BD%95openGauss%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8BV2/" rel="prev" title="记录openGauss实验过程V2">
-                  <i class="fa fa-chevron-left"></i> 记录openGauss实验过程V2
+                <a href="/2022/02/24/Markdown%E8%A7%84%E8%8C%83%E6%95%B4%E7%90%86/" rel="prev" title="Markdown规范整理">
+                  <i class="fa fa-chevron-left"></i> Markdown规范整理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/20/%E3%80%90%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E3%80%912021%E2%80%9CMINIEYE%E6%9D%AF%E2%80%9D%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E8%B6%85%E7%BA%A7%E8%81%94%E8%B5%9B%EF%BC%881%EF%BC%89%E5%88%92%E6%B0%B4%E8%AE%B0/" rel="next" title="【杭电多校】2021“MINIEYE杯”中国大学生算法设计超级联赛（1）划水记">
-                  【杭电多校】2021“MINIEYE杯”中国大学生算法设计超级联赛（1）划水记 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
